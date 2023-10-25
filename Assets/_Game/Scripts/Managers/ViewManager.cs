@@ -6,7 +6,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace GuruFirstCase
 {
-    public class ViewManager
+    public class ViewManager : IViewManager
     {
         readonly Dictionary<string, GameObject> openedViews = new();
 
