@@ -8,6 +8,7 @@ namespace GuruFirstCase
 {
     public class GridManager : IGridManager
     {
+        GameObject gridParent;
         private GridCell[,] _gridCells;
         private int _gridSize;
         private float _cellSize;
@@ -20,7 +21,7 @@ namespace GuruFirstCase
             _cellSize = cellSize;
 
             _gridCells = new GridCell[_gridSize, _gridSize];
-            GameObject gridParent = new GameObject("Grid" + _gridSize + "x" + _gridSize);
+           gridParent = new GameObject("Grid" + _gridSize + "x" + _gridSize);
             for (int y = 0; y < gridSize; y++)
             {
                 for (int x = 0; x < gridSize; x++)
@@ -47,17 +48,7 @@ namespace GuruFirstCase
 
         public void ResetGrid()
         {
-            if (_gridCells != null)
-            {
-                foreach (GridCell cell in _gridCells)
-                {
-                    if (cell != null)
-                    {
-                        Object.Destroy(cell.gameObject);
-                    }
-                }
-            }
-
+            Object.Destroy(gridParent);
             _gridSize = 0;
             _cellSize = 0.0f;
             _gridCells = null;
