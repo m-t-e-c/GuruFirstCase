@@ -14,9 +14,14 @@ namespace GuruFirstCase.Model
             _gridManager = Locator.Instance.Resolve<IGridManager>();
             _viewManager = Locator.Instance.Resolve<IViewManager>();
         }
-        
+
         public void CreateGrid(GameObject cellPrefab, int gridSize)
         {
+            if (gridSize <= 0 || ReferenceEquals(cellPrefab, null))
+            {
+                return;
+            }
+
             _gridManager.CreateGrid(cellPrefab, gridSize);
         }
 

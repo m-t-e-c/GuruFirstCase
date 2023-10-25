@@ -23,7 +23,8 @@ namespace GuruFirstCase.Presenters
             base.Start();
             createGridButton.onClick?.AddListener(() =>
             {
-                _model.CreateGrid(cellPrefab, int.Parse(gridSizeInputField.text));
+                var gridSize = int.Parse(!string.IsNullOrEmpty(gridSizeInputField.text) ? gridSizeInputField.text : "0");
+                _model.CreateGrid(cellPrefab, gridSize);
             });
             
             returnToMenuButton.onClick?.AddListener(() =>
